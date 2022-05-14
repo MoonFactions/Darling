@@ -1,0 +1,7 @@
+staff_chat_enabled: "&eYou have &aenabled &estaff chat."
+staff_chat_disabled: "&eYou have &cdisabled &estaff chat."
+staff_chat_format_vault: "&7[%server%] &f%prefix% &9%player%: &b%message%"
+staff_chat_format: "&7[%server%] &9%player%: &b%message%"
+staff_join_message: "&9%staff% &bhas connected to &7[%server%]"
+staff_quit_message: "&9%staff% &bhas disconnected from &7[%server%]"
+report_message: "&9[Report] &7(%server%) &9%player% &bhas reported &9%reported%\\n      &9Reason: &b%reason%"
