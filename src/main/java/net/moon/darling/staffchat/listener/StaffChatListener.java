@@ -13,13 +13,8 @@ public class StaffChatListener implements Listener {
 
     private final DarlingPlugin instance;
 
-    private Chat chat;
-
     public StaffChatListener(DarlingPlugin instance) {
         this.instance = instance;
-        if (this.instance.getServer().getPluginManager().isPluginEnabled("Vault")) {
-            this.chat = this.instance.getServer().getServicesManager().getRegistration(Chat.class).getProvider();
-        }
     }
 
     @EventHandler
@@ -31,20 +26,10 @@ public class StaffChatListener implements Listener {
             return;
         }
 
-        String formatted;
-
-        if (this.chat == null) {
-            formatted = this.instance.getMessages().getString("staff_chat_format")
-                    .replace("%server%", this.instance.getConfig().getString("server_name"))
-                    .replace("%player%", player.getName())
-                    .replace("%message%", message);
-        } else {
-            formatted = this.instance.getMessages().getString("staff_chat_format_vault")
+        String formatted = this.instance.getMessages().getString("staff_chat_format")
                     .replace("%server%", this.instance.getConfig().getString("server_name"))
                             .replace("%player%", player.getName())
-                            .replace("%message%", message)
-                            .replace("%prefix%", chat.getGroupPrefix(player.getWorld(), chat.getPrimaryGroup(player)));
-        }
+                            .replace("%message%", message);
 
         this.instance.getRedisHandler().publish(DataType.STAFF_CHAT_MESSAGE, formatted);
         event.setCancelled(true);

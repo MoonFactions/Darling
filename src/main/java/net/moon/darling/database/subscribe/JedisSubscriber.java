@@ -51,6 +51,11 @@ public class JedisSubscriber extends JedisPubSub {
                 break;
             }
 
+            case BROADCAST: {
+                this.instance.getServer().broadcastMessage(playerMessage);
+                break;
+            }
+
             case STAFF_CHAT_MESSAGE: {
                 for (Player player : this.instance.getServer().getOnlinePlayers()) {
                     if (player.hasPermission("darling.command.staffchat")) {

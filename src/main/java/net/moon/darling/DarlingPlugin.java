@@ -3,9 +3,7 @@ package net.moon.darling;
 import lombok.Getter;
 import net.moon.darling.database.RedisHandler;
 import net.moon.darling.staffchat.StaffChatHandler;
-import net.moon.darling.staffchat.command.ReportCommand;
-import net.moon.darling.staffchat.command.RequestCommand;
-import net.moon.darling.staffchat.command.StaffChatCommand;
+import net.moon.darling.staffchat.command.*;
 import net.moon.darling.staffchat.listener.StaffChatListener;
 import net.moon.darling.staffconnection.StaffConnectionListener;
 import net.moon.darling.utils.Config;
@@ -38,6 +36,8 @@ public class DarlingPlugin extends JavaPlugin {
         commandHandler.registerCommand(new StaffChatCommand(this));
         commandHandler.registerCommand(new ReportCommand(this));
         commandHandler.registerCommand(new RequestCommand(this));
+        commandHandler.registerCommand(new BroadcastCommand(this));
+        commandHandler.registerCommand(new AlertCommand(this));
     }
 
     private void registerListeners() {

@@ -7,4 +7,5 @@ public enum DataType {
     STAFF_CHAT_MESSAGE,
     HELP,
     REPORT,
+    BROADCAST,
 }
